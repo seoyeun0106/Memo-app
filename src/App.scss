@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+$width:180px;
+$height:180px;
+@mixin areaSize {
+    width: 100%;
+    height: 140px;    
+}
+html{
+    width: 375px;
+    height: 667px;
+    margin: 35%;
+    border: black solid 1px;
+}
+*{
+    font-family: 'Poor Story', cursive;
+    box-sizing: border-box;    
+}
+.memo_1{
+    display: flex;
+    /*원래 absolute해주면 형제들 다 잡어먹는 거 아니었나. 왜 flex했을때만 잡아먹을까. */
+    flex-direction: column;
+    position: relative;
+    width: $width;
+    height: $height;
+    border-bottom-right-radius: 15%;
+    margin-bottom: 10px;
+    margin-right: 1px;
+    background-color:darksalmon;
+}
+.memo_2{
+    @extend .memo_1;
+    background-color: darkseagreen;
+}
+.memo_3{
+    @extend .memo_1;
+    background-color: skyblue;
+}
+.memo_0{
+    @extend .memo_1;
+    background-color: lightgoldenrodyellow;
+}
+.canvas{
+    @include areaSize();
+    width: $width;
+    position: absolute;
+    top:20px;
+}
+.text{
+   @include areaSize();
+    font-family: 'Poor Story', cursive;
+   background-color:transparent;
+   border: 0;
+   padding: 5px;
+
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+/*.end{
+    text-align: end;
+}*/
+.plusBtn{
+    background-color: unset;
+    border: none;
+    padding: 1.5%;
+    svg{
+        fill: rgb(75, 74, 74)
+    }
+}
+.closeBtn{
+    background-color: unset;
+    border: none;
+    margin-left:auto;
+}
+.toolbar{
+    display:flex;
+    background-color: blanchedalmond;
+    justify-content:center;
+    button{
+        flex: 1 1 0;
+        padding: 0px;
+        margin:0;            
+        background-color: unset;
+        border: 0;
+    
+        svg{
+            padding:7px;
+            transition: all 0.5s ease-in;
+        }   
+        
+    }
+    button:hover{
+        transform: scale(1.2);    
+    }
+    button:nth-child(1){
+       svg{ fill: rgb(75, 74, 74)}
+    }
+    button:nth-child(2){
+        svg{ fill: rgb(197, 94, 94);}
+    }
+    button:nth-child(3){
+        svg{ fill:rgb(101, 101, 163)}
+    }
+    button:nth-child(4){
+        svg{fill: rgb(119, 151, 119);}
+    }
+}
+button{
+    cursor: pointer;
+}
+.z-index{
+    z-index: 3;
+}
+/*spot 만들어보기 ㅅㅂ*/
+.spot{
+    position:absolute;
+    background-color: yellow;
+    height: 3px;
+    
+}
